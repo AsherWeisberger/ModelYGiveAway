@@ -203,61 +203,9 @@
             font-size: 14px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
-
-        /* CAUTION TAPE STYLES */
-        .caution-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background: rgba(0,0,0,0.7);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            z-index: 9999;
-            opacity: 1;
-            transition: opacity 1.5s ease;
-        }
-        .caution-overlay.hidden {
-            opacity: 0;
-            pointer-events: none;
-        }
-        .caution-tape {
-            display: inline-block;
-            white-space: nowrap;
-            font-size: 2rem;
-            font-weight: bold;
-            padding: 1rem 2rem;
-            background: repeating-linear-gradient(
-                45deg,
-                yellow,
-                yellow 20px,
-                black 20px,
-                black 40px
-            );
-            color: black;
-            transform: rotate(-20deg);
-            animation: scrollTape 30s linear forwards;
-        }
-        @keyframes scrollTape {
-            0% { transform: rotate(-20deg) translateX(100%); }
-            100% { transform: rotate(-20deg) translateX(-400%); }
-        }
     </style>
 </head>
 <body>
-    <!-- CAUTION TAPE OVERLAY -->
-    <div class="caution-overlay" id="cautionOverlay">
-        <div class="caution-tape">
-            🚨 THE EASIEST WAY TO WIN A BRAND NEW TESLA MODEL Y LAUNCH EDITION 🚨
-            🚨 THE EASIEST WAY TO WIN A BRAND NEW TESLA MODEL Y LAUNCH EDITION 🚨
-            🚨 THE EASIEST WAY TO WIN A BRAND NEW TESLA MODEL Y LAUNCH EDITION 🚨
-            🚨 THE EASIEST WAY TO WIN A BRAND NEW TESLA MODEL Y LAUNCH EDITION 🚨
-        </div>
-    </div>
-
     <header>
         <nav>
             <div class="logo">Tesla Giveaway</div>
@@ -345,16 +293,5 @@
     <footer>
         <p>&copy; 2025 Tesla Giveaway. All rights reserved.</p>
     </footer>
-
-    <script>
-        // Fade out and remove caution tape after 30 seconds
-        setTimeout(() => {
-            document.getElementById("cautionOverlay").classList.add("hidden");
-        }, 30000);
-
-        setTimeout(() => {
-            document.getElementById("cautionOverlay").remove();
-        }, 31500);
-    </script>
 </body>
 </html>
