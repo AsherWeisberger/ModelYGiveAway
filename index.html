@@ -62,18 +62,39 @@
             transform: translateY(-2px);
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
+        /* Hero Section with split background */
         .hero {
             height: 100vh;
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('place here') center/cover no-repeat;
             position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 50%;
+            height: 100%;
+            background: url('back.jpg') center/cover no-repeat;
+            z-index: -2;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: url('front.jpg') center/cover no-repeat;
+            z-index: -2;
         }
         .hero-content {
-            background: linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7));
+            position: relative;
+            background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(12px);
             padding: 40px;
             border-radius: 16px;
@@ -234,7 +255,7 @@
             <h2>About the Giveaway</h2>
             <p>This stunning Tesla Model Y Juniper Launch Edition will be given away to whoever's ticket is picked at random. Each entry provides 5 tickets, and you can purchase as many entries as you like to increase your chances of winning the Tesla.</p>
         </div>
-
+        
         <div class="section" id="car-details">
             <h2>About the Car</h2>
             <p>The 2025 Tesla Model Y Juniper Launch Edition is a premium electric SUV that combines cutting-edge technology, performance, and style. This Long Range All-Wheel Drive model is packed with exclusive features, including Full Self-Driving (Supervised), making it the ultimate prize for any car enthusiast.</p>
@@ -252,13 +273,13 @@
                 <li><strong>Autonomy</strong>: Full Self-Driving (Supervised)</li>
             </ul>
         </div>
-
+        
         <div class="section entry" id="entry">
             <h2>Enter the Raffle</h2>
             <p>Purchase your entries now to get your tickets!</p>
             <a href="https://buy.stripe.com/bJe8wP0czg1najng9o6g80f" target="_blank">Buy Entries ($10 per Entry)</a>
         </div>
-
+        
         <div id="photos" class="photo-gallery">
             <img src="place here" alt="Tesla Model Y Photo 1">
             <img src="place here" alt="Tesla Model Y Photo 2">
@@ -270,7 +291,7 @@
             <img src="place here" alt="Tesla Model Y Photo 8">
             <img src="place here" alt="Tesla Model Y Photo 9">
         </div>
-
+        
         <div class="section" id="rules">
             <h2>Rules</h2>
             <ul>
@@ -278,12 +299,12 @@
                 <li>Each entry costs $10.</li>
             </ul>
         </div>
-
+        
         <div class="section" id="winner">
             <h2>How the Winner Will Be Picked</h2>
             <p>The winner will be picked at random; the more entries you have, the higher your chance to win the Tesla. We will be using a third-party service called "Random Picker," and the winner will be announced on our TikTok page. We will personally fly the winner to our location and pay for all associated fees for the car to be titled and registered in their name.</p>
         </div>
-
+        
         <div class="section" id="disclaimer">
             <h2>Disclaimer</h2>
             <p>All entries to the Tesla Model Y Juniper Launch Edition Giveaway are final and non-refundable. Each entry, priced at $10, grants five (5) tickets for submission into a random raffle drawing, with the number of entries directly increasing your chances of winning. Participants must be at least 18 years of age and legal residents of the United States to be eligible. The prize, a 2025 Tesla Model Y Juniper Launch Edition, is awarded "as is" with no warranties, express or implied, except those provided by the manufacturer. The winner is solely responsible for any applicable federal, state, or local taxes, as well as any additional fees not explicitly covered, such as insurance or optional vehicle upgrades. This giveaway is subject to all applicable federal, state, and local laws and regulations and is void where prohibited. By participating, entrants agree to be bound by these rules and the decisions of the giveaway organizers, which are final and binding in all matters related to the giveaway.</p>
