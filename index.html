@@ -56,7 +56,7 @@
         }
         /* Section container for consistent boxed layout */
         .section-container {
-            max-width: 860px; /* Adjusted to fit two 400px images plus gap */
+            max-width: 860px;
             margin: 0 auto;
             padding: 60px 20px;
             background: #1a1a1a;
@@ -70,7 +70,7 @@
             margin: 100px auto 40px;
             padding: 20px 20px;
             height: 60vh;
-            background: linear-gradient(to top, #0a0a0a 0%, rgba(0, 0, 0, 0.5) 20%, rgba(0, 0, 0, 0.5) 80%, #0a0a0a 100%), url('https://www.tesla.com/sites/default/files/images/model-y/model-y-hero-desktop.jpg') center/cover no-repeat; /* Placeholder: Replace with actual Juniper image URL */
+            background: linear-gradient(to top, #0a0a0a 0%, rgba(0, 0, 0, 0.5) 20%, rgba(0, 0, 0, 0.5) 80%, #0a0a0a 100%), url('https://www.tesla.com/sites/default/files/images/model-y/model-y-hero-desktop.jpg') center/cover no-repeat;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -135,7 +135,7 @@
             scroll-behavior: smooth;
             -webkit-overflow-scrolling: touch;
             scrollbar-width: thin;
-            scrollbar-color: #d3d3d3 #1a1a1a; /* Light grey scrollbar thumb */
+            scrollbar-color: #d3d3d3 #1a1a1a;
         }
         .gallery-grid::-webkit-scrollbar {
             height: 8px;
@@ -144,7 +144,7 @@
             background: #1a1a1a;
         }
         .gallery-grid::-webkit-scrollbar-thumb {
-            background: #d3d3d3; /* Light grey scrollbar thumb */
+            background: #d3d3d3;
             border-radius: 4px;
         }
         .gallery-item {
@@ -152,8 +152,8 @@
             overflow: hidden;
             border-radius: 8px;
             flex: 0 0 auto;
-            width: 400px; /* Fixed width for two images to fit in 860px container */
-            max-width: calc(50% - 10px); /* Ensure two images fit with gap */
+            width: 400px;
+            max-width: calc(50% - 10px);
             transition: transform 0.3s ease;
         }
         .gallery-item img {
@@ -360,11 +360,11 @@
                 gap: 15px;
             }
             .gallery-item {
-                width: 300px; /* Smaller width for mobile */
-                max-width: 80vw; /* Single image per view on mobile */
+                width: 300px;
+                max-width: 80vw;
             }
             .gallery-item img {
-                height: 200px; /* Smaller height for mobile */
+                height: 200px;
             }
             .feature-grid {
                 gap: 20px;
@@ -482,13 +482,9 @@
                     <label for="address">Address</label>
                     <textarea id="address" name="address" rows="3" placeholder="Enter your full address"></textarea>
                 </div>
-                <div class="form-group">
-                    <label for="entries">Number of Entries ($10 per entry, 5 tickets each)</label>
-                    <input type="number" id="entries" name="entries" min="1" value="1" required>
-                </div>
-                <button type="submit" class="submit-btn">Proceed to Payment</button>
+                <a href="https://buy.stripe.com/bJe8wP0czg1najng9o6g80f" class="submit-btn">Proceed to Payment</a>
             </form>
-            <p style="margin-top: 20px; opacity: 0.7; font-size: 0.9rem;">By entering, you agree to the <a href="#disclaimer">Official Rules</a>. Must be 18+ and a resident of the US. Unlimited entries via Stripe checkout. More entries give a higher chance to win.</p>
+            <p style="margin-top: 20px; opacity: 0.7; font-size: 0.9rem;">Select the number of tickets to purchase on the payment page. By entering, you agree to the <a href="#disclaimer">Official Rules</a>. Must be 18+ and a resident of the US. Unlimited entries via Stripe checkout. More entries give a higher chance to win.</p>
         </div>
     </section>
     <section id="disclaimer" class="disclaimer">
@@ -513,10 +509,7 @@
         </div>
         <p>&copy; 2025 Tesla Sweepstakes. All rights reserved.</p>
     </footer>
-    <script src="https://js.stripe.com/v3/"></script>
     <script>
-        // Initialize Stripe with your publishable key
-        const stripe = Stripe('your_stripe_publishable_key'); // Replace with your Stripe publishable key
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -525,43 +518,6 @@
                     behavior: 'smooth'
                 });
             });
-        });
-        // Form submission with Stripe
-        document.getElementById('sweepstakesForm').addEventListener('submit', async function(e) {
-            e.preventDefault();
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const phone = document.getElementById('phone').value;
-            const address = document.getElementById('address').value;
-            const entries = parseInt(document.getElementById('entries').value);
-            const amount = entries * 1000; // $10 per entry in cents
-            try {
-                // Create a Checkout Session
-                const response = await fetch('/create-checkout-session', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        name,
-                        email,
-                        phone,
-                        address,
-                        entries,
-                        amount,
-                    }),
-                });
-                const session = await response.json();
-                // Redirect to Stripe Checkout
-                const { error } = await stripe.redirectToCheckout({
-                    sessionId: session.id,
-                });
-                if (error) {
-                    alert('Error: ' + error.message);
-                }
-            } catch (error) {
-                alert('Error: Unable to process payment. Please try again.');
-            }
         });
         // Header background on scroll
         window.addEventListener('scroll', () => {
