@@ -3,449 +3,326 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Win a Tesla Model Y Juniper Launch Edition</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <title>Win a 2025 Tesla Model Y Juniper - Sweepstakes</title>
     <style>
-        /* CSS Variables for easy theme customization */
-        :root {
-            --background-color: #121212;
-            --surface-color: #1e1e1e;
-            --text-color: #e0e0e0;
-            --accent-color: #e82127;
-            --subtle-color: #888;
-            --border-color: #333;
-            --shadow-light: rgba(0, 0, 0, 0.1);
-            --shadow-dark: rgba(0, 0, 0, 0.4);
-        }
-
-        /* General Styles */
+        /* Reset and base styles inspired by Tesla.com: Clean, minimal, dark theme */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--background-color);
-            color: var(--text-color);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
+            color: #fff;
+            background-color: #000;
             overflow-x: hidden;
         }
-
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
         /* Header */
         header {
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(18, 18, 18, 0.9);
-            backdrop-filter: blur(10px);
-            padding: 16px 24px;
-            z-index: 1000;
-            box-shadow: 0 4px 20px var(--shadow-dark);
-        }
-
-        nav {
-            max-width: 1200px;
-            margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 20px 50px;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            transition: background 0.3s;
         }
-
         .logo {
-            font-size: 26px;
-            font-weight: 700;
-            color: var(--text-color);
-            text-shadow: 0 2px 4px var(--shadow-light);
-            transition: color 0.3s ease;
+            font-size: 24px;
+            font-weight: bold;
         }
-
-        .logo:hover {
-            color: var(--accent-color);
+        .enter-btn {
+            background: #fff;
+            color: #000;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: transform 0.3s;
         }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 24px;
+        .enter-btn:hover {
+            transform: scale(1.05);
         }
-
-        nav ul li a {
-            color: var(--text-color);
-            text-decoration: none;
-            font-size: 16px;
-            font-weight: 500;
-            padding: 8px 12px;
-            border-radius: 6px;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        nav ul li a::after {
-            content: '';
-            position: absolute;
-            left: 50%;
-            bottom: 0;
-            transform: translateX(-50%) scaleX(0);
-            width: 100%;
-            height: 2px;
-            background-color: var(--accent-color);
-            transition: transform 0.3s ease;
-        }
-
-        nav ul li a:hover::after {
-            transform: translateX(-50%) scaleX(1);
-        }
-
         /* Hero Section */
         .hero {
             height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1617267597116-29177114660d?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') center/cover no-repeat;
-            background-attachment: fixed;
-            animation: fadeIn 1.5s ease-in-out;
-        }
-
-        .hero-content {
-            position: relative;
-            background: rgba(30, 30, 30, 0.7);
-            backdrop-filter: blur(8px);
-            padding: 40px;
-            border-radius: 16px;
-            max-width: 800px;
-            box-shadow: 0 10px 40px var(--shadow-dark);
-            border: 1px solid var(--border-color);
-            animation: slideUp 1s ease-out;
-        }
-
-        .hero h1 {
-            font-size: clamp(3rem, 5vw, 4.5rem);
-            font-weight: 700;
-            margin-bottom: 20px;
-            color: var(--text-color);
-            text-shadow: 0 4px 10px rgba(232, 33, 39, 0.3);
-        }
-
-        .hero p {
-            font-size: clamp(1rem, 2.5vw, 1.25rem);
-            font-weight: 300;
-            margin-bottom: 30px;
-            color: var(--subtle-color);
-        }
-
-        .hero .cta-button {
-            background: linear-gradient(145deg, var(--accent-color), #c41820);
-            color: #fff;
-            padding: 20px 48px;
-            border-radius: 10px;
-            text-decoration: none;
-            font-size: 20px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(232, 33, 39, 0.4);
-            display: inline-block;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero .cta-button::after {
-            content: "Secure Checkout";
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 100%;
-            height: 20px;
-            font-size: 12px;
-            font-weight: 400;
-            background: rgba(0, 0, 0, 0.2);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transform: translateY(100%);
-            transition: transform 0.3s ease-out;
-        }
-
-        .hero .cta-button:hover::after {
-            transform: translateY(0);
-        }
-
-        .hero .cta-button:hover {
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 6px 20px rgba(232, 33, 39, 0.6);
-        }
-
-        /* Container & Sections */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 80px 20px;
-        }
-
-        h2 {
-            font-size: 36px;
-            font-weight: 600;
-            margin-bottom: 40px;
-            text-align: center;
-            color: var(--text-color);
-            text-shadow: 0 2px 4px var(--shadow-dark);
-        }
-
-        .section {
-            background-color: var(--surface-color);
-            padding: 60px;
-            border-radius: 20px;
-            margin-bottom: 60px;
-            box-shadow: 0 10px 40px var(--shadow-dark);
-            border: 1px solid var(--border-color);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .section:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 50px var(--shadow-dark);
-        }
-
-        .section p, .section ul {
-            font-size: 18px;
-            color: var(--subtle-color);
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto 20px auto;
-        }
-
-        .section ul {
-            list-style-type: none;
-            text-align: left;
-            padding: 0;
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://www.tesla.com/sites/default/files/images/model-y/model-y-hero-desktop.jpg') center/cover no-repeat; /* Placeholder: Replace with actual Juniper image URL */
             display: flex;
             flex-direction: column;
-            gap: 15px;
-            font-size: 16px;
-        }
-        .section ul li {
-            position: relative;
-            padding-left: 25px;
-            color: var(--text-color);
-        }
-        .section ul li strong {
-            color: var(--accent-color);
-        }
-        .section ul li::before {
-            content: "•";
-            position: absolute;
-            left: 0;
-            color: var(--accent-color);
-            font-size: 20px;
-            line-height: 1;
-        }
-
-        /* How It Works Section */
-        .how-it-works-grid {
-            display: flex;
-            justify-content: space-around;
-            gap: 20px;
-            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
             text-align: center;
+            position: relative;
         }
-
-        .how-it-works-step {
-            flex-basis: calc(33.333% - 20px);
-            background-color: var(--background-color);
-            padding: 30px;
-            border-radius: 12px;
-            border: 1px solid var(--border-color);
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
-            transition: transform 0.3s ease;
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            animation: fadeInUp 1s ease-out;
         }
-        .how-it-works-step:hover {
-            transform: translateY(-5px);
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 40px;
+            max-width: 600px;
+            animation: fadeInUp 1s ease-out 0.2s both;
         }
-
-        .how-it-works-step h3 {
-            font-size: 24px;
-            color: var(--accent-color);
-            margin-bottom: 15px;
+        .cta-btn {
+            background: #fff;
+            color: #000;
+            padding: 16px 32px;
+            border-radius: 30px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            transition: transform 0.3s, box-shadow 0.3s;
+            animation: fadeInUp 1s ease-out 0.4s both;
         }
-        .how-it-works-step p {
-            font-size: 16px;
-            color: var(--subtle-color);
-            margin-bottom: 0;
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(255, 255, 255, 0.2);
         }
-
-        /* Photo Gallery */
-        .photo-gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        /* Features Section */
+        .features {
+            padding: 100px 50px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .features h2 {
+            font-size: 3rem;
+            text-align: center;
             margin-bottom: 60px;
         }
-
-        .photo-gallery img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px var(--shadow-dark);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
         }
-
-        .photo-gallery img:hover {
-            transform: scale(1.03);
-            box-shadow: 0 8px 25px var(--shadow-dark);
-        }
-
-        /* Social Section */
-        .social-section {
+        .feature {
             text-align: center;
+            animation: fadeIn 1s ease-out;
         }
-
-        .social-icons a {
-            color: var(--text-color);
-            font-size: 32px;
-            margin: 0 15px;
-            transition: color 0.3s ease;
-        }
-        .social-icons a:hover {
-            color: var(--accent-color);
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 40px 20px;
-            background-color: var(--surface-color);
-            color: var(--subtle-color);
-            font-size: 14px;
-            border-top: 1px solid var(--border-color);
-        }
-
-        footer .social-icons {
+        .feature-icon {
+            font-size: 4rem;
             margin-bottom: 20px;
         }
-
+        .feature h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+        .feature p {
+            opacity: 0.8;
+            font-size: 1.1rem;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        /* Entry Form Section */
+        .entry {
+            background: #111;
+            padding: 100px 50px;
+            text-align: center;
+        }
+        .entry h2 {
+            font-size: 3rem;
+            margin-bottom: 40px;
+        }
+        .form-container {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            background: #333;
+            color: #fff;
+            font-size: 1rem;
+        }
+        .form-group input::placeholder, .form-group textarea::placeholder {
+            color: #888;
+        }
+        .submit-btn {
+            width: 100%;
+            background: #fff;
+            color: #000;
+            padding: 16px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        .submit-btn:hover {
+            transform: scale(1.02);
+        }
+        /* Footer */
+        footer {
+            background: #000;
+            padding: 40px 50px;
+            text-align: center;
+            border-top: 1px solid #333;
+        }
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 20px;
+        }
+        .footer-links a {
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        }
+        .footer-links a:hover {
+            opacity: 1;
+        }
+        /* Responsive */
         @media (max-width: 768px) {
-            nav ul {
-                display: none;
-            }
-            .how-it-works-step {
-                flex-basis: 100%;
-            }
-            .section {
-                padding: 40px;
+            header {
+                padding: 15px 20px;
             }
             .hero h1 {
                 font-size: 2.5rem;
+            }
+            .hero p {
+                font-size: 1.2rem;
+                padding: 0 20px;
+            }
+            .features, .entry {
+                padding: 60px 20px;
+            }
+            .features h2, .entry h2 {
+                font-size: 2rem;
             }
         }
     </style>
 </head>
 <body>
     <header>
-        <nav>
-            <a href="#" class="logo">Win a Tesla</a>
-            <ul>
-                <li><a href="#details">Car Details</a></li>
-                <li><a href="#how-it-works">How It Works</a></li>
-                <li><a href="#gallery">Gallery</a></li>
-                <li><a href="#rules">Rules</a></li>
-                <li><a href="#disclaimer">Disclaimer</a></li>
-            </ul>
-        </nav>
+        <div class="logo">Tesla Sweepstakes</div>
+        <a href="#entry" class="enter-btn">Enter Now</a>
     </header>
 
-    <main>
-        <div class="hero">
-            <div class="hero-content">
-                <h1>Win a Tesla Model Y Juniper Launch Edition</h1>
-                <p>Enter for your chance to win the all-new 2025 Model Y with Full Self-Driving. This could be yours!</p>
-                <a href="https://buy.stripe.com/bJe8wP0czg1najng9o6g80f" target="_blank" class="cta-button">Enter Now ($10 per Entry)</a>
+    <section class="hero">
+        <h1>Win a 2025 Tesla Model Y Juniper</h1>
+        <p>Enter for your chance to drive home the all-new refreshed Model Y Juniper – featuring cutting-edge design, up to 387 miles of range, and revolutionary features. Ends December 31, 2025.</p>
+        <a href="#entry" class="cta-btn">Enter to Win</a>
+    </section>
+
+    <section class="features">
+        <h2>Why the Model Y Juniper?</h2>
+        <div class="feature-grid">
+            <div class="feature">
+                <div class="feature-icon">🚗</div>
+                <h3>Sleek New Design</h3>
+                <p>Redesigned front bumper, squintier headlamps, and a full-width light bar for a futuristic look that's unmistakably Tesla.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">⚡</div>
+                <h3>Extended Range</h3>
+                <p>Up to 387 miles WLTP on the Long Range RWD model, with efficient AWD options and rapid charging capabilities.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🛋️</div>
+                <h3>Luxury Interior</h3>
+                <p>Ventilated front seats, rear-seat display, reclining rear seats, and customizable trunk for ultimate comfort on every journey.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🔧</div>
+                <h3>Performance Upgrades</h3>
+                <p>Available adaptive suspension, new Performance powertrain, and 21" Arachnid wheels for thrilling drives.</p>
             </div>
         </div>
+    </section>
 
-        <div class="container">
-            <div class="section" id="details">
-                <h2>The Grand Prize</h2>
-                <p>The 2025 Tesla Model Y Juniper Launch Edition is a premium electric SUV that combines cutting-edge technology, performance, and style. This Long Range All-Wheel Drive model is packed with exclusive features, including **Full Self-Driving (Supervised)**, making it the ultimate prize for any car enthusiast.</p>
-                <ul>
-                    <li><strong>Model</strong>: 2025 Tesla Model Y Juniper Launch Edition</li>
-                    <li><strong>Drivetrain</strong>: Long Range All-Wheel Drive</li>
-                    <li><strong>Range</strong>: 327 miles (EPA estimated)</li>
-                    <li><strong>0-60 mph</strong>: 4.6 seconds</li>
-                    <li><strong>Paint</strong>: Quicksilver</li>
-                    <li><strong>Wheels</strong>: 20'' Helix 2.0 with HALOBLK wheel covers</li>
-                    <li><strong>Interior</strong>: Premium White</li>
-                    <li><strong>Autonomy</strong>: Full Self-Driving (Supervised)</li>
-                </ul>
+    <section id="entry" class="entry">
+        <h2>Enter the Sweepstakes</h2>
+        <form class="form-container" id="sweepstakesForm">
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" required>
             </div>
-
-            <div class="section" id="how-it-works">
-                <h2>How It Works</h2>
-                <div class="how-it-works-grid">
-                    <div class="how-it-works-step">
-                        <h3>1. Purchase Entries</h3>
-                        <p>Buy your entries securely through our Stripe-powered checkout. Each entry is $10 and gives you 5 tickets into the draw.</p>
-                    </div>
-                    <div class="how-it-works-step">
-                        <h3>2. Receive Tickets</h3>
-                        <p>Your tickets are automatically generated and entered into our system. The more entries you buy, the higher your chances to win.</p>
-                    </div>
-                    <div class="how-it-works-step">
-                        <h3>3. The Draw</h3>
-                        <p>We'll use a third-party service, "Random Picker," to ensure a completely fair and transparent random drawing. The winner will be announced live!</p>
-                    </div>
-                </div>
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required>
             </div>
-
-            <div class="section" id="gallery">
-                <h2>The Model Y Up Close</h2>
-                <div class="photo-gallery">
-                    <img src="https://images.unsplash.com/photo-1617267597116-29177114660d?q=80&w=2670&auto=format&fit=crop" alt="Tesla Model Y Side Profile">
-                    <img src="https://images.unsplash.com/photo-1623916298270-f4b6a5051b66?q=80&w=2670&auto=format&fit=crop" alt="Tesla Model Y Front View">
-                    <img src="https://images.unsplash.com/photo-1616886475856-11b3334994e6?q=80&w=2670&auto=format&fit=crop" alt="Tesla Model Y Interior">
-                    <img src="https://images.unsplash.com/photo-1612767015091-62d4a70659a8?q=80&w=2670&auto=format&fit=crop" alt="Tesla Model Y Dashboard">
-                    <img src="https://images.unsplash.com/photo-1616556557876-2e8633c7f920?q=80&w=2670&auto=format&fit=crop" alt="Tesla Model Y Steering Wheel">
-                    <img src="https://images.unsplash.com/photo-1615555415712-4c227367803b?q=80&w=2670&auto=format&fit=crop" alt="Tesla Model Y Rear Lights">
-                </div>
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone">
             </div>
-
-            <div class="section social-section">
-                <h2>Follow the Journey</h2>
-                <p>Join our community to see the winner announcement and stay updated on future giveaways. We're on TikTok!</p>
-                <div class="social-icons">
-                    <a href="https://www.tiktok.com/@yourtiktokpage" target="_blank" aria-label="TikTok Page"><i class="fab fa-tiktok"></i></a>
-                    <a href="https://www.instagram.com/yourinstagrampage" target="_blank" aria-label="Instagram Page"><i class="fab fa-instagram"></i></a>
-                </div>
+            <div class="form-group">
+                <label for="address">Address</label>
+                <textarea id="address" name="address" rows="3" placeholder="Enter your full address"></textarea>
             </div>
-
-            <div class="section" id="rules">
-                <h2>Official Rules</h2>
-                <ul>
-                    <li>Each entry costs $10 and gives you 5 tickets.</li>
-                    <li>Participants must be at least 18 years of age and legal residents of the United States.</li>
-                    <li>The winner will be randomly selected using a third-party service ("Random Picker").</li>
-                    <li>The winner will be announced on our TikTok page.</li>
-                    <li>We will personally fly the winner to our location and cover all costs for the car to be titled and registered in their name.</li>
-                    <li>Full rules and regulations are available in the Disclaimer section below.</li>
-                </ul>
-            </div>
-
-            <div class="section" id="disclaimer">
-                <h2>Disclaimer</h2>
-                <p>All entries to the Tesla Model Y Juniper Launch Edition Giveaway are final and non-refundable. Each entry, priced at $10, grants five (5) tickets for submission into a random raffle drawing, with the number of entries directly increasing your chances of winning. The prize, a 2025 Tesla Model Y Juniper Launch Edition, is awarded "as is" with no warranties, express or implied, except those provided by the manufacturer. The winner is solely responsible for any applicable federal, state, or local taxes, as well as any additional fees not explicitly covered, such as insurance or optional vehicle upgrades. This giveaway is subject to all applicable federal, state, and local laws and regulations and is void where prohibited. By participating, entrants agree to be bound by these rules and the decisions of the giveaway organizers, which are final and binding in all matters related to the giveaway.</p>
-            </div>
-        </div>
-    </main>
+            <button type="submit" class="submit-btn">Submit Entry</button>
+        </form>
+        <p style="margin-top: 20px; opacity: 0.7; font-size: 0.9rem;">By entering, you agree to the <a href="#">Official Rules</a>. Must be 18+ and a resident of the US. One entry per person.</p>
+    </section>
 
     <footer>
-        <p>This promotion is in no way sponsored, endorsed, or administered by, or associated with, Tesla, Inc.</p>
-        <p>&copy; 2025 [Your Company Name]. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="#">Official Rules</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Contact Us</a>
+            <a href="#">Sponsor: Tesla Inc.</a>
+        </div>
+        <p>&copy; 2025 Tesla Sweepstakes. All rights reserved.</p>
     </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Form submission (demo: alert success)
+        document.getElementById('sweepstakesForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for entering! Your submission has been received. Good luck!');
+            // In a real site, send to backend/server
+        });
+
+        // Header background on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(0, 0, 0, 0.95)';
+            } else {
+                header.style.background = 'rgba(0, 0, 0, 0.8)';
+            }
+        });
+    </script>
 </body>
 </html>
