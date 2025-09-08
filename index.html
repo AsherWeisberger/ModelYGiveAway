@@ -183,6 +183,28 @@
         .submit-btn:hover {
             transform: scale(1.02);
         }
+        /* Disclaimer Section */
+        .disclaimer {
+            background: #111;
+            padding: 60px 50px;
+            text-align: center;
+            font-size: 0.9rem;
+            opacity: 0.7;
+            line-height: 1.8;
+        }
+        .disclaimer h2 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+        .disclaimer ul {
+            text-align: left;
+            max-width: 600px;
+            margin: 0 auto 20px;
+            padding-left: 20px;
+        }
+        .disclaimer ul li {
+            margin-bottom: 10px;
+        }
         /* Footer */
         footer {
             background: #000;
@@ -215,11 +237,14 @@
                 font-size: 1.2rem;
                 padding: 0 20px;
             }
-            .features, .entry {
+            .features, .entry, .disclaimer {
                 padding: 60px 20px;
             }
-            .features h2, .entry h2 {
+            .features h2, .entry h2, .disclaimer h2 {
                 font-size: 2rem;
+            }
+            .disclaimer ul {
+                padding-left: 15px;
             }
         }
     </style>
@@ -283,12 +308,24 @@
             </div>
             <button type="submit" class="submit-btn">Submit Entry</button>
         </form>
-        <p style="margin-top: 20px; opacity: 0.7; font-size: 0.9rem;">By entering, you agree to the <a href="#">Official Rules</a>. Must be 18+ and a resident of the US. One entry per person.</p>
+        <p style="margin-top: 20px; opacity: 0.7; font-size: 0.9rem;">By entering, you agree to the <a href="#disclaimer">Official Rules</a>. Must be 18+ and a resident of the US. One entry per person.</p>
+    </section>
+
+    <section id="disclaimer" class="disclaimer">
+        <h2>Official Rules and Disclaimer</h2>
+        <ul>
+            <li>Each entry costs $10 and gives you 5 tickets.</li>
+            <li>Participants must be at least 18 years of age and legal residents of the United States.</li>
+            <li>The winner will be randomly selected using a third-party service ("Random Picker").</li>
+            <li>The winner will be announced on our TikTok page.</li>
+            <li>We will personally fly the winner to our location and cover all costs for the car to be titled and registered in their name.</li>
+        </ul>
+        <p>All entries to the Tesla Model Y Juniper Launch Edition Giveaway are final and non-refundable. Each entry, priced at $10, grants five (5) tickets for submission into a random raffle drawing, with the number of entries directly increasing your chances of winning. The prize, a 2025 Tesla Model Y Juniper Launch Edition, is awarded "as is" with no warranties, express or implied, except those provided by the manufacturer. The winner is solely responsible for any applicable federal, state, or local taxes, as well as any additional fees not explicitly covered, such as insurance or optional vehicle upgrades. This giveaway is subject to all applicable federal, state, and local laws and regulations and is void where prohibited. By participating, entrants agree to be bound by these rules and the decisions of the giveaway organizers, which are final and binding in all matters related to the giveaway.</p>
     </section>
 
     <footer>
         <div class="footer-links">
-            <a href="#">Official Rules</a>
+            <a href="#disclaimer">Official Rules</a>
             <a href="#">Privacy Policy</a>
             <a href="#">Contact Us</a>
             <a href="#">Sponsor: Tesla Inc.</a>
@@ -324,5 +361,3 @@
             }
         });
     </script>
-</body>
-</html>
