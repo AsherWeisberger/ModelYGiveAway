@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -57,7 +56,7 @@
         }
         /* Section container for consistent boxed layout */
         .section-container {
-            max-width: 1000px;
+            max-width: 860px; /* Adjusted to fit two 400px images plus gap */
             margin: 0 auto;
             padding: 60px 20px;
             background: #1a1a1a;
@@ -128,23 +127,38 @@
             margin-bottom: 40px;
         }
         .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            grid-template-rows: repeat(2, auto);
+            display: flex;
+            flex-wrap: nowrap;
+            overflow-x: auto;
             gap: 20px;
-            justify-items: center;
+            padding-bottom: 20px;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: thin;
+            scrollbar-color: #d3d3d3 #1a1a1a; /* Light grey scrollbar thumb */
+        }
+        .gallery-grid::-webkit-scrollbar {
+            height: 8px;
+        }
+        .gallery-grid::-webkit-scrollbar-track {
+            background: #1a1a1a;
+        }
+        .gallery-grid::-webkit-scrollbar-thumb {
+            background: #d3d3d3; /* Light grey scrollbar thumb */
+            border-radius: 4px;
         }
         .gallery-item {
             position: relative;
             overflow: hidden;
             border-radius: 8px;
-            width: 100%;
-            max-width: 300px;
+            flex: 0 0 auto;
+            width: 400px; /* Fixed width for two images to fit in 860px container */
+            max-width: calc(50% - 10px); /* Ensure two images fit with gap */
             transition: transform 0.3s ease;
         }
         .gallery-item img {
             width: 100%;
-            height: 200px;
+            height: 300px;
             object-fit: cover;
             display: block;
         }
@@ -343,14 +357,14 @@
                 font-size: 1.8rem;
             }
             .gallery-grid {
-                grid-template-columns: 1fr; /* Stack images vertically on mobile */
                 gap: 15px;
             }
             .gallery-item {
-                max-width: 100%;
+                width: 300px; /* Smaller width for mobile */
+                max-width: 80vw; /* Single image per view on mobile */
             }
             .gallery-item img {
-                height: 180px; /* Slightly smaller for mobile */
+                height: 200px; /* Smaller height for mobile */
             }
             .feature-grid {
                 gap: 20px;
@@ -372,39 +386,36 @@
         <div class="logo">Tesla Sweepstakes</div>
         <a href="#entry" class="enter-btn">Enter Now</a>
     </header>
-
     <section class="hero section-container">
         <h1>Win a 2025 Tesla Model Y Juniper</h1>
         <p>Enter for your chance to drive home the all-new refreshed Model Y Juniper – featuring cutting-edge design, up to 387 miles of range, and revolutionary features. Ends December 31, 2025.</p>
         <a href="#entry" class="cta-btn">Enter to Win</a>
     </section>
-
     <section class="gallery">
         <div class="section-container">
             <h2>Model Y Juniper Gallery</h2>
             <div class="gallery-grid">
                 <div class="gallery-item">
-                    <img src="https://asherweisberger.github.io/ModelYGiveAway/IMG_1011.JPG" alt="Model Y Juniper Front View" onerror="this.src='https://via.placeholder.com/300x200?text=Model+Y+Juniper+Front';">
+                    <img src="https://asherweisberger.github.io/ModelYGiveAway/IMG_1011.JPG" alt="Model Y Juniper Front View" onerror="this.src='https://via.placeholder.com/400x300?text=Model+Y+Juniper+Front';">
                 </div>
                 <div class="gallery-item">
-                    <img src="https://asherweisberger.github.io/ModelYGiveAway/IMG_1013.JPG" alt="Model Y Juniper Side View" onerror="this.src='https://via.placeholder.com/300x200?text=Model+Y+Juniper+Side';">
+                    <img src="https://asherweisberger.github.io/ModelYGiveAway/IMG_1013.JPG" alt="Model Y Juniper Side View" onerror="this.src='https://via.placeholder.com/400x300?text=Model+Y+Juniper+Side';">
                 </div>
                 <div class="gallery-item">
-                    <img src="https://asherweisberger.github.io/ModelYGiveAway/IMG_1015.JPG" alt="Model Y Juniper Rear View" onerror="this.src='https://via.placeholder.com/300x200?text=Model+Y+Juniper+Rear';">
+                    <img src="https://asherweisberger.github.io/ModelYGiveAway/IMG_1015.JPG" alt="Model Y Juniper Rear View" onerror="this.src='https://via.placeholder.com/400x300?text=Model+Y+Juniper+Rear';">
                 </div>
                 <div class="gallery-item">
-                    <img src="https://asherweisberger.github.io/ModelYGiveAway/IMG_1018.JPG" alt="Model Y Juniper Interior" onerror="this.src='https://via.placeholder.com/300x200?text=Model+Y+Juniper+Interior';">
+                    <img src="https://asherweisberger.github.io/ModelYGiveAway/IMG_1018.JPG" alt="Model Y Juniper Interior" onerror="this.src='https://via.placeholder.com/400x300?text=Model+Y+Juniper+Interior';">
                 </div>
                 <div class="gallery-item">
-                    <img src="https://asherweisberger.github.io/ModelYGiveAway/IMG_1021.JPG" alt="Model Y Juniper Wheels" onerror="this.src='https://via.placeholder.com/300x200?text=Model+Y+Juniper+Wheels';">
+                    <img src="https://asherweisberger.github.io/ModelYGiveAway/IMG_1021.JPG" alt="Model Y Juniper Wheels" onerror="this.src='https://via.placeholder.com/400x300?text=Model+Y+Juniper+Wheels';">
                 </div>
                 <div class="gallery-item">
-                    <img src="https://asherweisberger.github.io/ModelYGiveAway/IMG_1023.JPG" alt="Model Y Juniper Dashboard" onerror="this.src='https://via.placeholder.com/300x200?text=Model+Y+Juniper+Dashboard';">
+                    <img src="https://asherweisberger.github.io/ModelYGiveAway/IMG_1023.JPG" alt="Model Y Juniper Dashboard" onerror="this.src='https://via.placeholder.com/400x300?text=Model+Y+Juniper+Dashboard';">
                 </div>
             </div>
         </div>
     </section>
-
     <section class="features">
         <div class="section-container">
             <h2>Why the Model Y Juniper?</h2>
@@ -451,7 +462,6 @@
             </div>
         </div>
     </section>
-
     <section id="entry" class="entry">
         <div class="section-container">
             <h2>Enter the Sweepstakes</h2>
@@ -481,7 +491,6 @@
             <p style="margin-top: 20px; opacity: 0.7; font-size: 0.9rem;">By entering, you agree to the <a href="#disclaimer">Official Rules</a>. Must be 18+ and a resident of the US. Unlimited entries via Stripe checkout. More entries give a higher chance to win.</p>
         </div>
     </section>
-
     <section id="disclaimer" class="disclaimer">
         <div class="section-container">
             <h2>Official Rules and Disclaimer</h2>
@@ -495,7 +504,6 @@
             <p>All entries to the Tesla Model Y Juniper Launch Edition Giveaway are final and non-refundable. Each entry, priced at $10, grants five (5) tickets for submission into a random raffle drawing, with the number of entries directly increasing your chances of winning. The prize, a 2025 Tesla Model Y Juniper Launch Edition, is awarded "as is" with no warranties, express or implied, except those provided by the manufacturer. The winner is solely responsible for any applicable federal, state, or local taxes, as well as any additional fees not explicitly covered, such as insurance or optional vehicle upgrades. This giveaway is subject to all applicable federal, state, and local laws and regulations and is void where prohibited. By participating, entrants agree to be bound by these rules and the decisions of the giveaway organizers, which are final and binding in all matters related to the giveaway.</p>
         </div>
     </section>
-
     <footer>
         <div class="footer-links">
             <a href="#disclaimer">Official Rules</a>
@@ -505,12 +513,10 @@
         </div>
         <p>&copy; 2025 Tesla Sweepstakes. All rights reserved.</p>
     </footer>
-
     <script src="https://js.stripe.com/v3/"></script>
     <script>
         // Initialize Stripe with your publishable key
         const stripe = Stripe('your_stripe_publishable_key'); // Replace with your Stripe publishable key
-
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -520,7 +526,6 @@
                 });
             });
         });
-
         // Form submission with Stripe
         document.getElementById('sweepstakesForm').addEventListener('submit', async function(e) {
             e.preventDefault();
@@ -530,7 +535,6 @@
             const address = document.getElementById('address').value;
             const entries = parseInt(document.getElementById('entries').value);
             const amount = entries * 1000; // $10 per entry in cents
-
             try {
                 // Create a Checkout Session
                 const response = await fetch('/create-checkout-session', {
@@ -547,14 +551,11 @@
                         amount,
                     }),
                 });
-
                 const session = await response.json();
-
                 // Redirect to Stripe Checkout
                 const { error } = await stripe.redirectToCheckout({
                     sessionId: session.id,
                 });
-
                 if (error) {
                     alert('Error: ' + error.message);
                 }
@@ -562,7 +563,6 @@
                 alert('Error: Unable to process payment. Please try again.');
             }
         });
-
         // Header background on scroll
         window.addEventListener('scroll', () => {
             const header = document.querySelector('header');
@@ -575,4 +575,3 @@
     </script>
 </body>
 </html>
-```
