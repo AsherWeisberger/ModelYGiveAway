@@ -41,6 +41,25 @@
             font-weight: 600;
             letter-spacing: 1px;
         }
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .nav-btn {
+            background: none;
+            color: #fff;
+            padding: 8px 16px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 400;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+        .nav-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
         .enter-btn {
             background: #fff;
             color: #000;
@@ -337,6 +356,17 @@
             header {
                 padding: 15px 20px;
             }
+            .nav-links {
+                gap: 10px;
+            }
+            .nav-btn {
+                padding: 6px 12px;
+                font-size: 0.8rem;
+            }
+            .enter-btn {
+                padding: 8px 16px;
+                font-size: 0.9rem;
+            }
             .hero {
                 height: 50vh;
                 margin: 80px auto 20px;
@@ -384,14 +414,19 @@
 <body>
     <header>
         <div class="logo">Tesla Sweepstakes</div>
-        <a href="#entry" class="enter-btn">Enter Now</a>
+        <div class="nav-links">
+            <a href="#gallery" class="nav-btn">Gallery</a>
+            <a href="#features" class="nav-btn">About</a>
+            <a href="#disclaimer" class="nav-btn">Rules</a>
+            <a href="#entry" class="enter-btn">Enter Now</a>
+        </div>
     </header>
     <section class="hero section-container">
         <h1>Win a 2025 Tesla Model Y Juniper</h1>
         <p>Enter for your chance to drive home the all-new refreshed Model Y Juniper – featuring cutting-edge design, up to 387 miles of range, and revolutionary features. Ends December 31, 2025.</p>
         <a href="#entry" class="cta-btn">Enter to Win</a>
     </section>
-    <section class="gallery">
+    <section id="gallery" class="gallery">
         <div class="section-container">
             <h2>Model Y Juniper Gallery</h2>
             <div class="gallery-grid">
@@ -416,7 +451,7 @@
             </div>
         </div>
     </section>
-    <section class="features">
+    <section id="features" class="features">
         <div class="section-container">
             <h2>Why the Model Y Juniper?</h2>
             <div class="feature-grid">
