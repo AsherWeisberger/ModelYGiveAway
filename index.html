@@ -68,15 +68,16 @@
         .hero {
             max-width: 1000px;
             margin: 100px auto 40px;
-            padding: 60px 20px;
-            height: 80vh;
-            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://www.tesla.com/sites/default/files/images/model-y/model-y-hero-desktop.jpg') center/cover no-repeat; /* Placeholder: Replace with actual Juniper image URL */
+            padding: 20px 20px;
+            height: 60vh;
+            background: linear-gradient(to top, #0a0a0a 0%, rgba(0, 0, 0, 0.5) 20%, rgba(0, 0, 0, 0.5) 80%, #0a0a0a 100%), url('https://www.tesla.com/sites/default/files/images/model-y/model-y-hero-desktop.jpg') center/cover no-repeat; /* Placeholder: Replace with actual Juniper image URL */
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            border-radius: 12px;
+            border-radius: 8px;
+            border: none;
         }
         .hero h1 {
             font-size: 3.5rem;
@@ -115,6 +116,54 @@
                 transform: translateY(0);
             }
         }
+        /* Gallery Section */
+        .gallery .section-container {
+            padding: 40px 20px;
+        }
+        .gallery h2 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(2, auto);
+            gap: 20px;
+            justify-items: center;
+        }
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            width: 100%;
+            max-width: 300px;
+            transition: transform 0.3s ease;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 200px; /* Increased height for bigger photos */
+            object-fit: cover;
+            display: block;
+        }
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+        .gallery-item::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .gallery-item:hover::after {
+            opacity: 1;
+        }
         /* Features Section */
         .features .section-container {
             padding-bottom: 80px;
@@ -149,9 +198,15 @@
             font-weight: 500;
             margin-bottom: 8px;
         }
-        .feature p {
+        .feature ul {
+            text-align: left;
+            list-style-type: disc;
+            padding-left: 20px;
             font-size: 1rem;
             opacity: 0.85;
+        }
+        .feature ul li {
+            margin-bottom: 8px;
         }
         /* Entry Form Section */
         .entry .section-container {
@@ -268,9 +323,9 @@
                 padding: 15px 20px;
             }
             .hero {
-                height: 70vh;
+                height: 50vh;
                 margin: 80px auto 20px;
-                padding: 40px 15px;
+                padding: 15px 15px;
             }
             .hero h1 {
                 font-size: 2.2rem;
@@ -283,14 +338,27 @@
                 padding: 40px 15px;
                 margin: 0 15px 20px;
             }
-            .features h2, .entry h2, .disclaimer h2 {
+            .gallery h2, .features h2, .entry h2, .disclaimer h2 {
                 font-size: 1.8rem;
+            }
+            .gallery-grid {
+                grid-template-columns: 1fr; /* Stack images vertically on mobile */
+                gap: 15px;
+            }
+            .gallery-item {
+                max-width: 100%;
+            }
+            .gallery-item img {
+                height: 180px; /* Slightly smaller for mobile */
             }
             .feature-grid {
                 gap: 20px;
             }
             .feature {
                 padding: 15px;
+            }
+            .feature ul {
+                padding-left: 15px;
             }
             .disclaimer ul {
                 padding-left: 15px;
@@ -310,6 +378,32 @@
         <a href="#entry" class="cta-btn">Enter to Win</a>
     </section>
 
+    <section class="gallery">
+        <div class="section-container">
+            <h2>Model Y Juniper Gallery</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/300x200?text=Model+Y+Juniper+Front" alt="Model Y Juniper Front View">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/300x200?text=Model+Y+Juniper+Side" alt="Model Y Juniper Side View">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/300x200?text=Model+Y+Juniper+Rear" alt="Model Y Juniper Rear View">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/300x200?text=Model+Y+Juniper+Interior" alt="Model Y Juniper Interior">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/300x200?text=Model+Y+Juniper+Wheels" alt="Model Y Juniper Wheels">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/300x200?text=Model+Y+Juniper+Dashboard" alt="Model Y Juniper Dashboard">
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="features">
         <div class="section-container">
             <h2>Why the Model Y Juniper?</h2>
@@ -317,22 +411,41 @@
                 <div class="feature">
                     <div class="feature-icon">🚗</div>
                     <h3>Sleek New Design</h3>
-                    <p>Redesigned front bumper, squintier headlamps, and a full-width light bar for a futuristic look that's unmistakably Tesla.</p>
+                    <ul>
+                        <li>Redesigned front bumper</li>
+                        <li>Squintier headlamps</li>
+                        <li>Full-width light bar for a futuristic look</li>
+                    </ul>
                 </div>
                 <div class="feature">
                     <div class="feature-icon">⚡</div>
                     <h3>Extended Range</h3>
-                    <p>Up to 387 miles WLTP on the Long Range RWD model, with efficient AWD options and rapid charging capabilities.</p>
+                    <ul>
+                        <li>Up to 387 miles WLTP on Long Range RWD</li>
+                        <li>Efficient AWD options</li>
+                        <li>Rapid charging capabilities</li>
+                    </ul>
                 </div>
                 <div class="feature">
                     <div class="feature-icon">🛋️</div>
                     <h3>Luxury Interior</h3>
-                    <p>Ventilated front seats, rear-seat display, reclining rear seats, and customizable trunk for ultimate comfort.</p>
+                    <ul>
+                        <li>White Interior</li>
+                        <li>Ventilated front seats</li>
+                        <li>Rear-seat display</li>
+                        <li>Reclining rear seats</li>
+                        <li>Customizable trunk</li>
+                    </ul>
                 </div>
                 <div class="feature">
                     <div class="feature-icon">🔧</div>
                     <h3>Performance Upgrades</h3>
-                    <p>Adaptive suspension, new Performance powertrain, and 21" Arachnid wheels for thrilling drives.</p>
+                    <ul>
+                        <li>Adaptive suspension</li>
+                        <li>New Performance powertrain</li>
+                        <li>20’’ Helix 2.0 Wheels with HaloDisc 2 Wheel cover (5% longer range)</li>
+                        <li>Full Self Driving installed and active</li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -358,9 +471,13 @@
                     <label for="address">Address</label>
                     <textarea id="address" name="address" rows="3" placeholder="Enter your full address"></textarea>
                 </div>
-                <button type="submit" class="submit-btn">Submit Entry</button>
+                <div class="form-group">
+                    <label for="entries">Number of Entries ($10 per entry, 5 tickets each)</label>
+                    <input type="number" id="entries" name="entries" min="1" value="1" required>
+                </div>
+                <button type="submit" class="submit-btn">Proceed to Payment</button>
             </form>
-            <p style="margin-top: 20px; opacity: 0.7; font-size: 0.9rem;">By entering, you agree to the <a href="#disclaimer">Official Rules</a>. Must be 18+ and a resident of the US. One entry per person.</p>
+            <p style="margin-top: 20px; opacity: 0.7; font-size: 0.9rem;">By entering, you agree to the <a href="#disclaimer">Official Rules</a>. Must be 18+ and a resident of the US. Unlimited entries via Stripe checkout. More entries give a higher chance to win.</p>
         </div>
     </section>
 
@@ -388,7 +505,11 @@
         <p>&copy; 2025 Tesla Sweepstakes. All rights reserved.</p>
     </footer>
 
+    <script src="https://js.stripe.com/v3/"></script>
     <script>
+        // Initialize Stripe with your publishable key
+        const stripe = Stripe('your_stripe_publishable_key'); // Replace with your Stripe publishable key
+
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -399,11 +520,46 @@
             });
         });
 
-        // Form submission (demo: alert success)
-        document.getElementById('sweepstakesForm').addEventListener('submit', function(e) {
+        // Form submission with Stripe
+        document.getElementById('sweepstakesForm').addEventListener('submit', async function(e) {
             e.preventDefault();
-            alert('Thank you for entering! Your submission has been received. Good luck!');
-            // In a real site, send to backend/server
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const address = document.getElementById('address').value;
+            const entries = parseInt(document.getElementById('entries').value);
+            const amount = entries * 1000; // $10 per entry in cents
+
+            try {
+                // Create a Checkout Session
+                const response = await fetch('/create-checkout-session', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        name,
+                        email,
+                        phone,
+                        address,
+                        entries,
+                        amount,
+                    }),
+                });
+
+                const session = await response.json();
+
+                // Redirect to Stripe Checkout
+                const { error } = await stripe.redirectToCheckout({
+                    sessionId: session.id,
+                });
+
+                if (error) {
+                    alert('Error: ' + error.message);
+                }
+            } catch (error) {
+                alert('Error: Unable to process payment. Please try again.');
+            }
         });
 
         // Header background on scroll
