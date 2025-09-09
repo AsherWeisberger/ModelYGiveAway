@@ -16,6 +16,7 @@
             line-height: 1.6;
             color: #fff;
             background-color: #0a0a0a;
+            cursor: default; /* Default cursor */
         }
         a {
             text-decoration: none;
@@ -158,6 +159,7 @@
             -webkit-overflow-scrolling: touch;
             scrollbar-width: thin;
             scrollbar-color: #d3d3d3 #1a1a1a;
+            position: relative;
         }
         .gallery-grid::-webkit-scrollbar {
             height: 8px;
@@ -200,6 +202,55 @@
         }
         .gallery-item:hover::after {
             opacity: 1;
+        }
+        /* Custom Cursor for Gallery */
+        .custom-cursor {
+            position: fixed;
+            width: 40px;
+            height: 40px;
+            border: 2px solid #000;
+            border-radius: 50%;
+            background: #fff;
+            display: none; /* Hidden by default */
+            justify-content: center;
+            align-items: center;
+            pointer-events: none;
+            z-index: 3000;
+            transform: translate(-50%, -50%);
+            transition: transform 0.1s ease, border-width 0.3s ease;
+        }
+        .custom-cursor.active {
+            display: flex;
+        }
+        .custom-cursor .arrow {
+            font-size: 1.5rem;
+            color: #000;
+        }
+        .custom-cursor .progress-ring {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            box-sizing: border-box;
+        }
+        .custom-cursor .progress-ring__circle {
+            stroke: #000;
+            fill: none;
+            stroke-width: 2;
+            stroke-dasharray: 125.6; /* Circumference of circle (2 * π * r), where r = 20 */
+            stroke-dashoffset: 125.6;
+            transform: rotate(-90deg);
+            transform-origin: center;
+            transition: stroke-dashoffset 3s linear;
+        }
+        .gallery:hover {
+            cursor: none; /* Hide default cursor */
+        }
+        .gallery:hover .custom-cursor .progress-ring__circle {
+            stroke-dashoffset: 0;
         }
         /* Features Section */
         .features .section-container {
@@ -511,11 +562,12 @@
             .disclaimer ul {
                 padding-left: 15px;
             }
-            .popup-content {
-                padding: 20px;
+            .custom-cursor {
+                width: 30px;
+                height: 30px;
             }
-            .popup-content p {
-                font-size: 1rem;
+            .custom-cursor .arrow {
+                font-size: 1.2rem;
             }
         }
     </style>
@@ -526,6 +578,14 @@
             <button class="popup-close" onclick="closePopup()">×</button>
             <p>Welcome! This giveaway is sponsored by Haloblk to allow one lucky person to win the all new Tesla Model Y Juniper! Check out the site to be involved!</p>
         </div>
+    </div>
+    <div class="custom-cursor" id="customCursor">
+        <div class="progress-ring">
+            <svg width="40" height="40">
+                <circle class="progress-ring__circle" cx="20" cy="20" r="18" />
+            </svg>
+        </div>
+        <span class="arrow">></span>
     </div>
     <header>
         <div class="nav-links">
@@ -543,7 +603,7 @@
     <section id="gallery" class="gallery">
         <div class="section-container">
             <h2>Model Y Juniper Gallery</h2>
-            <div class="gallery-grid">
+            <div class="gallery-grid" id="galleryGrid">
                 <div class="gallery-item">
                     <img src="https://asherweisberger.github.io/ModelYGiveAway/IMG_1011.JPG" alt="Model Y Juniper Front View" onerror="this.src='https://via.placeholder.com/400x300?text=Model+Y+Juniper+Front';">
                 </div>
@@ -697,6 +757,57 @@
         function closePopup() {
             const popup = document.getElementById('welcomePopup');
             popup.classList.remove('active');
+        }
+        // Custom cursor and gallery navigation functionality
+        const cursor = document.getElementById('customCursor');
+        const gallery = document.querySelector('.gallery');
+        const galleryGrid = document.getElementById('galleryGrid');
+        let currentItem = 0;
+        let timeoutId = null;
+
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+
+        gallery.addEventListener('mouseenter', () => {
+            cursor.classList.add('active');
+            clearTimeout(timeoutId); // Clear any existing timeout
+            const progressCircle = cursor.querySelector('.progress-ring__circle');
+            progressCircle.style.transition = 'none'; // Reset transition
+            progressCircle.style.strokeDashoffset = '125.6'; // Reset to full circle
+            requestAnimationFrame(() => {
+                progressCircle.style.transition = 'stroke-dashoffset 3s linear'; // Changed to 3 seconds
+                progressCircle.style.strokeDashoffset = '0';
+            });
+            // Start countdown to next image
+            timeoutId = setTimeout(() => {
+                scrollToNextImage();
+            }, 3000); // Changed to 3 seconds
+        });
+
+        gallery.addEventListener('mouseleave', () => {
+            cursor.classList.remove('active');
+            clearTimeout(timeoutId); // Clear any existing timeout
+        });
+
+        function scrollToNextImage() {
+            const items = galleryGrid.querySelectorAll('.gallery-item');
+            currentItem = (currentItem + 1) % items.length;
+            const itemWidth = items[0].offsetWidth + 20; // Include gap
+            galleryGrid.scrollTo({
+                left: currentItem * itemWidth,
+                behavior: 'smooth'
+            });
+            // Reset countdown for the next image
+            const progressCircle = cursor.querySelector('.progress-ring__circle');
+            progressCircle.style.transition = 'none';
+            progressCircle.style.strokeDashoffset = '125.6';
+            requestAnimationFrame(() => {
+                progressCircle.style.transition = 'stroke-dashoffset 3s linear'; // Changed to 3 seconds
+                progressCircle.style.strokeDashoffset = '0';
+            });
+            timeoutId = setTimeout(scrollToNextImage, 3000); // Changed to 3 seconds
         }
     </script>
 </body>
