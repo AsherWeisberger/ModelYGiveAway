@@ -85,8 +85,8 @@
         }
         /* Hero Section */
         .hero {
-            max-width: 1000px;
-            margin: 100px auto 40px;
+            width: 100vw; /* Full viewport width */
+            margin: 100px 0 40px; /* Remove horizontal margins */
             padding: 20px 20px;
             height: 60vh;
             background: linear-gradient(to top, #0a0a0a 0%, rgba(0, 0, 0, 0.5) 20%, rgba(0, 0, 0, 0.5) 80%, #0a0a0a 100%), url('https://asherweisberger.github.io/ModelYGiveAway/HALO.jpg') center/cover no-repeat;
@@ -97,7 +97,7 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            border-radius: 8px;
+            border-radius: 0; /* Remove border-radius for full-width effect */
             border: none;
         }
         .hero h1 {
@@ -413,7 +413,7 @@
             }
             .hero {
                 height: 50vh;
-                margin: 80px auto 20px;
+                margin: 80px 0 20px; /* Adjusted for full-width */
                 padding: 15px 15px;
             }
             .hero h1 {
