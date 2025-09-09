@@ -562,6 +562,12 @@
             .disclaimer ul {
                 padding-left: 15px;
             }
+            .popup-content {
+                padding: 20px;
+            }
+            .popup-content p {
+                font-size: 1rem;
+            }
             .custom-cursor {
                 width: 30px;
                 height: 30px;
@@ -586,6 +592,12 @@
             </svg>
         </div>
         <span class="arrow">></span>
+    </div>
+    <div class="popup-overlay" id="contactPopup">
+        <div class="popup-content">
+            <button class="popup-close" onclick="closePopup('contactPopup')">×</button>
+            <p>Message us on our Official TikTok Page!</p>
+        </div>
     </div>
     <header>
         <div class="nav-links">
@@ -725,7 +737,7 @@
         <div class="footer-links">
             <a href="#disclaimer">Official Rules</a>
             <a href="#">Privacy Policy</a>
-            <a href="#">Contact Us</a>
+            <a href="#" onclick="showPopup('contactPopup'); return false;">Contact Us</a>
             <a href="https://www.haloblk.com">Sponsor: HALOBLK</a>
         </div>
         <p>&copy; 2025 Tesla Sweepstakes. All rights reserved.</p>
@@ -754,9 +766,13 @@
             const popup = document.getElementById('welcomePopup');
             popup.classList.add('active');
         });
-        function closePopup() {
-            const popup = document.getElementById('welcomePopup');
+        function closePopup(popupId = 'welcomePopup') {
+            const popup = document.getElementById(popupId);
             popup.classList.remove('active');
+        }
+        function showPopup(popupId) {
+            const popup = document.getElementById(popupId);
+            popup.classList.add('active');
         }
         // Custom cursor and gallery navigation functionality
         const cursor = document.getElementById('customCursor');
@@ -777,13 +793,13 @@
             progressCircle.style.transition = 'none'; // Reset transition
             progressCircle.style.strokeDashoffset = '125.6'; // Reset to full circle
             requestAnimationFrame(() => {
-                progressCircle.style.transition = 'stroke-dashoffset 3s linear'; // Changed to 3 seconds
+                progressCircle.style.transition = 'stroke-dashoffset 3s linear';
                 progressCircle.style.strokeDashoffset = '0';
             });
             // Start countdown to next image
             timeoutId = setTimeout(() => {
                 scrollToNextImage();
-            }, 3000); // Changed to 3 seconds
+            }, 3000);
         });
 
         gallery.addEventListener('mouseleave', () => {
@@ -804,10 +820,10 @@
             progressCircle.style.transition = 'none';
             progressCircle.style.strokeDashoffset = '125.6';
             requestAnimationFrame(() => {
-                progressCircle.style.transition = 'stroke-dashoffset 3s linear'; // Changed to 3 seconds
+                progressCircle.style.transition = 'stroke-dashoffset 3s linear';
                 progressCircle.style.strokeDashoffset = '0';
             });
-            timeoutId = setTimeout(scrollToNextImage, 3000); // Changed to 3 seconds
+            timeoutId = setTimeout(scrollToNextImage, 3000);
         }
     </script>
 </body>
