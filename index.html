@@ -16,7 +16,6 @@
             line-height: 1.6;
             color: #fff;
             background-color: #0a0a0a;
-            overflow-x: hidden;
         }
         a {
             text-decoration: none;
@@ -85,8 +84,10 @@
         }
         /* Hero Section */
         .hero {
-            width: 100vw; /* Full viewport width */
-            margin: 100px 0 40px; /* Remove horizontal margins */
+            width: 100%;
+            position: relative;
+            left: 0;
+            margin: 100px 0 40px;
             padding: 20px 20px;
             height: 60vh;
             background: linear-gradient(to top, #0a0a0a 0%, rgba(0, 0, 0, 0.5) 20%, rgba(0, 0, 0, 0.5) 80%, #0a0a0a 100%), url('https://asherweisberger.github.io/ModelYGiveAway/HALO.jpg') center/cover no-repeat;
@@ -97,7 +98,6 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            border-radius: 0; /* Remove border-radius for full-width effect */
             border: none;
         }
         .hero h1 {
@@ -413,7 +413,7 @@
             }
             .hero {
                 height: 50vh;
-                margin: 80px 0 20px; /* Adjusted for full-width */
+                margin: 80px 0 20px;
                 padding: 15px 15px;
             }
             .hero h1 {
@@ -465,7 +465,7 @@
             <a href="#entry" class="enter-btn">Enter Now</a>
         </div>
     </header>
-    <section class="hero section-container">
+    <section class="hero">
         <h1>Win a 2025 Tesla Model Y Juniper</h1>
         <p>Enter for your chance to drive home the all-new refreshed Model Y Juniper – featuring cutting-edge design, up to 387 miles of range, and revolutionary features. Ends December 31, 2025.</p>
         <a href="#entry" class="cta-btn">Enter to Win</a>
