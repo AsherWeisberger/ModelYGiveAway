@@ -402,4 +402,230 @@
         /* Responsive */
         @media (max-width: 768px) {
             header {
-                padding: 15px 20
+                padding: 15px 20px;
+            }
+            .nav-links {
+                gap: 10px;
+            }
+            .nav-btn {
+                padding: 6px 12px;
+                font-size: 0.8rem;
+            }
+            .enter-btn {
+                padding: 8px 16px;
+                font-size: 0.9rem;
+            }
+            .hero {
+                height: 50vh;
+                margin: 80px 0 20px;
+                padding: 15px 15px;
+            }
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .hero p {
+                font-size: 1.1rem;
+                padding: 0 15px;
+            }
+            .section-container {
+                padding: 40px 15px;
+                margin: 0 15px 20px;
+            }
+            .gallery .section-container {
+                margin: 0;
+            }
+            .gallery h2, .features h2, .about h2, .partnership h2, .entry h2, .disclaimer h2 {
+                font-size: 1.8rem;
+            }
+            .gallery-grid {
+                gap: 15px;
+            }
+            .gallery-item {
+                width: 600px;
+                max-width: 80vw;
+            }
+            .gallery-item img {
+                height: 400px;
+            }
+            .feature-grid {
+                gap: 20px;
+            }
+            .feature {
+                padding: 15px;
+            }
+            .feature ul {
+                padding-left: 15px;
+            }
+            .disclaimer ul {
+                padding-left: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Tesla Sweepstakes</div>
+        <div class="nav-links">
+            <a href="#gallery" class="nav-btn">Gallery</a>
+            <a href="#about" class="nav-btn">About</a>
+            <a href="#disclaimer" class="nav-btn">Rules</a>
+            <a href="#entry" class="enter-btn">Enter Now</a>
+        </div>
+    </header>
+    <section class="hero">
+        <h1>Win a 2025 Tesla Model Y Juniper</h1>
+        <p>Enter for your chance to drive home the all-new refreshed Model Y Juniper – featuring cutting-edge design, up to 387 miles of range, and revolutionary features. Ends December 31, 2025.</p>
+        <a href="#entry" class="cta-btn">Enter to Win</a>
+    </section>
+    <section id="gallery" class="gallery">
+        <div class="section-container">
+            <h2>Model Y Juniper Gallery</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://asherweisberger.github.io/ModelYGiveAway/IMG_1011.JPG" alt="Model Y Juniper Front View" onerror="this.src='https://via.placeholder.com/400x300?text=Model+Y+Juniper+Front';">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://asherweisberger.github.io/ModelYGiveAway/IMG_1013.JPG" alt="Model Y Juniper Side View" onerror="this.src='https://via.placeholder.com/400x300?text=Model+Y+Juniper+Side';">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://asherweisberger.github.io/ModelYGiveAway/IMG_1015.JPG" alt="Model Y Juniper Rear View" onerror="this.src='https://via.placeholder.com/400x300?text=Model+Y+Juniper+Rear';">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://asherweisberger.github.io/ModelYGiveAway/IMG_1018.JPG" alt="Model Y Juniper Interior" onerror="this.src='https://via.placeholder.com/400x300?text=Model+Y+Juniper+Interior';">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://asherweisberger.github.io/ModelYGiveAway/IMG_1021.JPG" alt="Model Y Juniper Wheels" onerror="this.src='https://via.placeholder.com/400x300?text=Model+Y+Juniper+Wheels';">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://asherweisberger.github.io/ModelYGiveAway/IMG_1023.JPG" alt="Model Y Juniper Dashboard" onerror="this.src='https://via.placeholder.com/400x300?text=Model+Y+Juniper+Dashboard';">
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="features" class="features">
+        <div class="section-container">
+            <h2>Why the Model Y Juniper?</h2>
+            <div class="feature-grid">
+                <div class="feature">
+                    <div class="feature-icon">🚗</div>
+                    <h3>Sleek New Design</h3>
+                    <ul>
+                        <li>Redesigned front bumper</li>
+                        <li>Squintier headlamps</li>
+                        <li>Full-width light bar for a futuristic look</li>
+                    </ul>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Extended Range</h3>
+                    <ul>
+                        <li>Up to 387 miles WLTP on Long Range RWD</li>
+                        <li>Efficient AWD options</li>
+                        <li>Rapid charging capabilities</li>
+                    </ul>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🛋️</div>
+                    <h3>Luxury Interior</h3>
+                    <ul>
+                        <li>White Interior</li>
+                        <li>Ventilated front seats</li>
+                        <li>Rear-seat display</li>
+                        <li>Reclining rear seats</li>
+                        <li>Customizable trunk</li>
+                    </ul>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🔧</div>
+                    <h3>Performance Upgrades</h3>
+                    <ul>
+                        <li>Adaptive suspension</li>
+                        <li>New Performance powertrain</li>
+                        <li>20’’ Helix 2.0 Wheels with HaloDisc 2 Wheel cover (5% longer range)</li>
+                        <li>Full Self Driving installed and active</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="about" class="about">
+        <div class="section-container">
+            <h2>About Us</h2>
+            <p>Welcome to our very first giveaway! We’re a small, passionate team based in the heart of the Midwest, USA, dedicated to bringing exciting giveaways to people across the country. This Tesla Model Y Juniper sweepstakes marks the start of our journey, and we’re thrilled to invite you to join us! After this inaugural event, we plan to host new giveaways every three months, featuring amazing vehicles or cash prizes. Be part of our first-ever giveaway and stay tuned for more opportunities to win big!</p>
+        </div>
+    </section>
+    <section id="partnership" class="partnership">
+        <div class="section-container">
+            <h2>Our Partnership with HALOBLK</h2>
+            <p>We’re excited to announce that we’ve partnered with <a href="https://www.haloblk.com">HALOBLK</a> to bring this incredible Tesla Model Y Juniper giveaway to life! HALOBLK, a trusted name in premium Tesla accessories, shares our passion for innovation and quality. Their support has been instrumental in making this first-ever sweepstakes possible, ensuring that one lucky winner will drive away in a vehicle equipped with their cutting-edge HALODISC 2 wheel covers. Join us in celebrating this partnership and enter for your chance to win!</p>
+        </div>
+    </section>
+    <section id="entry" class="entry">
+        <div class="section-container">
+            <h2>Enter the Sweepstakes</h2>
+            <form class="form-container" id="sweepstakesForm">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+                <div class="form-group">
+                    <label for="address">Address</label>
+                    <textarea id="address" name="address" rows="3" placeholder="Enter your full address"></textarea>
+                </div>
+                <a href="https://buy.stripe.com/8x2fZh5yTeAq0og5DQa7C00" class="submit-btn">Proceed to Payment</a>
+            </form>
+            <p style="margin-top: 20px; opacity: 0.7; font-size: 0.9rem;">Select the number of tickets to purchase on the payment page. By entering, you agree to the <a href="#disclaimer">Official Rules</a>. Must be 18+ and a resident of the US. Unlimited entries via Stripe checkout. More entries give a higher chance to win.</p>
+        </div>
+    </section>
+    <section id="disclaimer" class="disclaimer">
+        <div class="section-container">
+            <h2>Official Rules and Disclaimer</h2>
+            <ul>
+                <li>Each entry costs $10 and gives you 5 tickets.</li>
+                <li>Participants must be at least 18 years of age and legal residents of the United States.</li>
+                <li>The winner will be randomly selected using a third-party service ("Random Picker").</li>
+                <li>The winner will be announced on our TikTok page.</li>
+                <li>We will personally fly the winner to our location and cover all costs for the car to be titled and registered in their name.</li>
+            </ul>
+            <p>All entries to the Tesla Model Y Juniper Launch Edition Giveaway are final and non-refundable. Each entry, priced at $10, grants five (5) tickets for submission into a random raffle drawing, with the number of entries directly increasing your chances of winning. The prize, a 2025 Tesla Model Y Juniper Launch Edition, is awarded "as is" with no warranties, express or implied, except those provided by the manufacturer. The winner is solely responsible for any applicable federal, state, or local taxes, as well as any additional fees not explicitly covered, such as insurance or optional vehicle upgrades. This giveaway is subject to all applicable federal, state, and local laws and regulations and is void where prohibited. By participating, entrants agree to be bound by these rules and the decisions of the giveaway organizers, which are final and binding in all matters related to the giveaway.</p>
+        </div>
+    </section>
+    <footer>
+        <div class="footer-links">
+            <a href="#disclaimer">Official Rules</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Contact Us</a>
+            <a href="https://www.haloblk.com">Sponsor: HALOBLK</a>
+        </div>
+        <p>&copy; 2025 Tesla Sweepstakes. All rights reserved.</p>
+    </footer>
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        // Header background on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(0, 0, 0, 0.95)';
+            } else {
+                header.style.background = 'rgba(0, 0, 0, 0.85)';
+            }
+        });
+    </script>
+</body>
+</html>
